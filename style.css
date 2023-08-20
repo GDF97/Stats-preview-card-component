@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap");
+
+:root {
+  /*  Primary */
+  --Very-dark-blue-main-background: hsl(233, 47%, 7%);
+  --Dark-desaturated-blue-card-background: hsl(244, 38%, 16%);
+  --Soft-violet-accent: hsl(277, 64%, 61%);
+
+  /*  Neutral */
+  --White-main-heading-stats: hsl(0, 0%, 100%);
+  --Slightly-transparent-white-main-paragraph: hsla(0, 0%, 100%, 0.75);
+  --Slightly-transparent-white-stat-headings: hsla(0, 0%, 100%, 0.6);
+
+  /* Font-family */
+  --main-font: "Inter", sans-serif;
+  --secondary-font: "Lexend Deca", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--Very-dark-blue-main-background);
+  padding: 1rem;
+}
+
+.card {
+  width: 1360px;
+  min-height: 550px;
+  background-color: var(--Dark-desaturated-blue-card-background);
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-text {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.card-text > article:nth-child(1) > h1 {
+  position: relative;
+  font-size: 3rem;
+  padding-bottom: 2rem;
+  font-family: var(--main-font);
+  color: white;
+}
+
+.card-text > article:nth-child(1) > h1::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  background-color: var(--Dark-desaturated-blue-card-background);
+  transform-origin: left;
+  animation: animation 2s ease both;
+}
+
+@keyframes animation {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+.card-text > article:nth-child(1) > h1 > strong {
+  color: var(--Soft-violet-accent);
+}
+
+.card-text > article:nth-child(1) > p {
+  font-family: var(--main-font);
+  font-size: 22px;
+  color: var(--Slightly-transparent-white-main-paragraph);
+  position: relative;
+}
+
+.card-text > article:nth-child(1) > p::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  background-color: var(--Dark-desaturated-blue-card-background);
+  transform-origin: left;
+  animation: animation 2s 1.75s ease both;
+}
+
+.card-text > article:nth-child(2) {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-text > article:nth-child(2) > div {
+  position: relative;
+}
+
+.card-text > article:nth-child(2) > div::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  background-color: var(--Dark-desaturated-blue-card-background);
+  transform-origin: left;
+  animation: animation 2s 2.5s ease both;
+}
+
+.card-text > article:nth-child(2) > div > h1 {
+  color: white;
+  font-family: var(--main-font);
+  font-size: 1.75rem;
+}
+
+.card-text > article:nth-child(2) > div > p {
+  color: var(--Slightly-transparent-white-stat-headings);
+  font-family: var(--main-font);
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  font-size: 12px;
+}
+
+.image {
+  width: 100%;
+  position: relative;
+}
+
+.image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: hsla(277, 64%, 61%, 0.367);
+  z-index: 1;
+}
+
+@media (max-width: 1440px) {
+  .card {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 1000px) {
+  .card {
+    width: 100%;
+    transform: scale(1);
+    flex-wrap: wrap-reverse;
+  }
+}
+
+@media (max-width: 500px) {
+  .card-text {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .card-text > article:nth-child(1) {
+    text-align: center;
+  }
+
+  .card-text > article:nth-child(1) > h1 {
+    font-size: 1.75rem;
+  }
+
+  .card-text > article:nth-child(1) > p {
+    font-size: 16px;
+  }
+
+  .card-text > article:nth-child(2) {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .card-text > article:nth-child(2) > div > h1 {
+    font-size: 1.5rem;
+  }
+}
